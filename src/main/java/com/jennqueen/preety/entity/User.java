@@ -14,10 +14,9 @@ import java.sql.Timestamp;
 
 @DynamicUpdate
 @DynamicInsert
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
+@Setter
 @Entity
 public class User {
 
