@@ -24,7 +24,7 @@ public class KindsOfProduct {
     @Column(columnDefinition = "BIGINT UNSIGNED COMMENT '상품 종류 PK'")
     private BigInteger id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", columnDefinition = "BIGINT UNSIGNED COMMENT '상품 PK'", nullable = false)
     private Product product;
 
