@@ -21,6 +21,10 @@ public class Product {
     @Column(name = "product_number", columnDefinition ="BIGINT UNSIGNED COMMENT '상품번호 PK'")
     private BigInteger productNumber;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_code", columnDefinition = "VARCHAR(30) COMMENT '카테고리 코드'", nullable = false)
+    private ProductCategory productCategory;
+
     @Column(name = "product_name", columnDefinition = "VARCHAR(50) COMMENT '상품 이름'", nullable = false)
     private String productName;
 
@@ -50,7 +54,7 @@ public class Product {
     @Builder
     public Product(String productName, BigInteger productPrice, BigInteger productHits,
                    String description, String careInstructions, String composition,
-                   String detail) {
+                   String detail, ProductCategory productCategory) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.productHits = productHits;
@@ -58,5 +62,6 @@ public class Product {
         this.careInstructions = careInstructions;
         this.composition = composition;
         this.detail = detail;
+        this.productCategory = productCategory;
     }
 }
